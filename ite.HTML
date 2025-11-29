@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Лучшие таблицы для работы, учёбы и жизни</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Готовые шаблоны таблиц для Google Sheets, Excel и CSV: финансы, учёба, бизнес, планирование и ежедневные задачи." />
+
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'],
+          },
+          boxShadow: {
+            'soft-xl': '0 24px 80px rgba(15,23,42,0.85)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: radial-gradient(circle at top, rgba(79, 70, 229, 0.24), transparent 55%),
+                  radial-gradient(circle at bottom, rgba(56, 189, 248, 0.12), transparent 55%),
+                  #020617;
+    }
+
+    /* Hero animations */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(18px) scale(0.98);
+      animation: fadeUp 0.6s cubic-bezier(0.21, 0.8, 0.34, 1) forwards;
+    }
+
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(22px) scale(0.96);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Card animations */
+    .card-enter {
+      opacity: 0;
+      transform: translateY(12px) scale(0.98);
+      animation: cardIn 0.4s cubic-bezier(0.21, 0.8, 0.34, 1) forwards;
+      animation-delay: var(--card-delay, 0ms);
+    }
+
+    @keyframes cardIn {
+      0% {
+        opacity: 0;
+        transform: translateY(16px) scale(0.96);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .card-leave {
+      animation: cardOut 0.18s ease-in forwards;
+    }
+
+    @keyframes cardOut {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-4px) scale(0.98);
+      }
+    }
+
+    /* Filter pills */
+    .filter-pill-active {
+      background-image: linear-gradient(120deg, #4f46e5, #6366f1, #8b5cf6);
+      color: #f9fafb;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.85);
+      border-color: transparent;
+    }
+
+    /* Preview table styles */
+    .preview-table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 0.7rem;
+      table-layout: fixed;
+    }
+
+    .preview-table th,
+    .preview-table td {
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 0.2rem 0.35rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .preview-table th {
+      background: linear-gradient(to right, rgba(129, 140, 248, 0.16), rgba(147, 51, 234, 0.08));
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    .preview-table tbody tr:nth-child(odd) {
+      background-color: rgba(15, 23, 42, 0.9);
+    }
+
+    .preview-table tbody tr:nth-child(even) {
+      background-color: rgba(15, 23, 42, 0.7);
+    }
+
+    /* Utility for subtle inner glow */
+    .inner-glow {
+      box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.35);
+    }
+  </style>
+</head>
+<body class="text-slate-50 font-sans antialiased">
+  <div class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="border-b border-slate-800/80 bg-slate-950/70 backdrop-blur-xl sticky top-0 z-30">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
+        <a href="#hero" class="flex items-center gap-2 group">
+          <div class="h-8 w-8 rounded-2xl bg-gradient-to-br from-indigo-500 via-sky-500 to-fuchsia-500 flex items-center justify-center text-xs font-bold shadow-soft-xl group-hover:scale-105 transition-transform duration-200">
+            T
+          </div>
+          <div class="flex flex-col leading-tight">
+            <span class="text-sm font-semibold tracking-tight">Таблицы</span>
+            <span class="text-[11px] text-slate-400">Templates Hub</span>
+          </div>
+        </a>
+
+        <div class="hidden md:flex items-center gap-6 text-xs font-medium text-slate-300">
+          <a href="#catalog" class="hover:text-slate-50 transition-colors">Каталог</a>
+          <a href="#benefits" class="hover:text-slate-50 transition-colors">Преимущества</a>
+          <a href="#admin" class="hover:text-slate-50 transition-colors">Админ-панель</a>
+        </div>
+
+        <button id="adminToggle" class="inline-flex items-center gap-1.5 rounded-full border border-slate-700/80 bg-slate-900/80 px-3 py-1.5 text-[11px] font-medium text-slate-200 hover:text-slate-50 hover:border-slate-500 hover:bg-slate-900 shadow-md shadow-slate-950/60 transition-all duration-200" aria-expanded="false">
+          <span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_0_4px_rgba(16,185,129,0.3)]"></span>
+          <span id="adminToggleLabel">Админ-панель</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="flex-1">
+      <!-- Hero -->
+      <section id="hero" class="relative overflow-hidden">
+        <!-- Background shapes -->
+        <div class="pointer-events-none absolute inset-0 -z-10">
+          <div class="absolute -top-40 -left-32 h-72 w-72 bg-gradient-to-tr from-indigo-500/40 via-sky-400/30 to-fuchsia-500/40 rounded-full blur-3xl opacity-70"></div>
+          <div class="absolute -bottom-48 right-0 h-80 w-80 bg-gradient-to-tl from-fuchsia-500/35 via-indigo-500/25 to-sky-400/35 rounded-full blur-3xl opacity-60"></div>
+          <div class="absolute inset-x-0 top-40 h-px bg-gradient-to-r from-transparent via-slate-600/40 to-transparent"></div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 lg:py-24 flex flex-col md:flex-row md:items-center gap-10 md:gap-14">
+          <div class="max-w-xl space-y-6">
+            <div class="inline-flex items-center gap-2 rounded-full bg-slate-950/80 border border-slate-700/80 px-3 py-1 text-[11px] text-slate-300 shadow-soft-xl fade-up" style="animation-delay: 0ms;">
+              <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-sky-500 text-[9px]">★</span>
+              <span>Готовые таблицы для Google Sheets, Excel и CSV</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-slate-50 fade-up" style="animation-delay: 120ms;">
+              Лучшие таблицы для работы, учёбы и жизни
+            </h1>
+
+            <p class="text-base sm:text-lg text-slate-300/95 max-w-lg fade-up" style="animation-delay: 240ms;">
+              Готовые шаблоны: финансовые, учебные, бизнес, планирование и ежедневные задачи.
+              Скачивайте и используйте бесплатно — в пару кликов.
+            </p>
+
+            <div class="flex flex-col sm:flex-row sm:items-center gap-4 fade-up" style="animation-delay: 360ms;">
+              <button id="heroCta" class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 via-sky-500 to-fuchsia-500 px-5 py-2.5 text-sm font-semibold text-white shadow-soft-xl hover:brightness-110 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200">
+                Перейти к таблицам
+                <span class="ml-2 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10 text-[11px]">↘</span>
+              </button>
+              <div class="flex items-center gap-3 text-xs text-slate-400">
+                <div class="flex -space-x-2">
+                  <div class="h-6 w-6 rounded-full bg-indigo-500/70 border border-slate-900/80"></div>
+                  <div class="h-6 w-6 rounded-full bg-sky-500/70 border border-slate-900/80"></div>
+                  <div class="h-6 w-6 rounded-full bg-fuchsia-500/70 border border-slate-900/80"></div>
+                </div>
+                <span>12+ шаблонов, новые ежемесячно</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero preview -->
+          <div class="md:flex-1 fade-up" style="animation-delay: 320ms;">
+            <div class="relative">
+              <div class="absolute -inset-1 rounded-3xl bg-gradient-to-br from-indigo-500/40 via-sky-400/30 to-fuchsia-500/30 blur-xl opacity-70"></div>
+              <div class="relative bg-slate-950/90 border border-slate-700/80 rounded-3xl p-4 sm:p-5 shadow-soft-xl backdrop-blur-xl inner-glow">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="flex items-center gap-2">
+                    <div class="h-7 w-7 rounded-2xl bg-gradient-to-br from-indigo-500 to-sky-500 flex items-center justify-center text-[11px] font-semibold">Fx</div>
+                    <div>
+                      <p class="text-xs font-semibold text-slate-100">Финансовый план</p>
+                      <p class="text-[10px] text-slate-400">Месячный обзор</p>
+                    </div>
+                  </div>
+                  <span class="rounded-full bg-emerald-500/10 text-emerald-300 text-[10px] px-2 py-1 border border-emerald-500/40">Автоформулы</span>
+                </div>
+
+                <!-- Fake preview 1 -->
+                <div class="rounded-2xl border border-slate-700/70 bg-slate-900/90 p-3 mb-3">
+                  <table class="preview-table">
+                    <thead>
+                      <tr>
+                        <th>Категория</th>
+                        <th>План</th>
+                        <th>Факт</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Доход</td>
+                        <td>120&nbsp;000 ₽</td>
+                        <td>118&nbsp;500 ₽</td>
+                      </tr>
+                      <tr>
+                        <td>Расходы</td>
+                        <td>80&nbsp;000 ₽</td>
+                        <td>76&nbsp;300 ₽</td>
+                      </tr>
+                      <tr>
+                        <td>Сбережения</td>
+                        <td>40&nbsp;000 ₽</td>
+                        <td>42&nbsp;200 ₽</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Fake preview 2 -->
+                <div class="rounded-2xl border border-slate-700/70 bg-slate-900/90 p-3 flex flex-col gap-2">
+                  <div class="flex items-center justify-between text-[11px] text-slate-300">
+                    <span class="inline-flex items-center gap-1.5">
+                      <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                      Прогресс задач
+                    </span>
+                    <span class="text-slate-400">Спринт 12</span>
+                  </div>
+                  <div class="space-y-2">
+                    <div class="h-1.5 rounded-full bg-slate-800 overflow-hidden">
+                      <div class="h-full w-4/5 bg-gradient-to-r from-indigo-500 via-sky-500 to-fuchsia-500"></div>
+                    </div>
+                    <div class="flex justify-between text-[10px] text-slate-400">
+                      <span>18 задач</span>
+                      <span>14 завершено</span>
+                      <span>78%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4 flex items-center justify-between text-[11px] text-slate-400">
+                  <span class="inline-flex items-center gap-1">
+                    <span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span>
+                    Google Sheets • Excel • CSV
+                  </span>
+                  <span>⏱ Установка: до 2 минут</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Catalog + Filters -->
+      <section id="catalog" class="py-10 md:py-16 lg:py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 md:mb-8">
+            <div class="space-y-1">
+              <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-slate-50">
+                Каталог таблиц
+              </h2>
+              <p class="text-sm text-slate-400 max-w-xl">
+                Выберите шаблон под свои задачи: финансы, учёба, бизнес, планирование и ежедневные дела.
+              </p>
+            </div>
+            <div class="flex items-center gap-3 text-[11px] text-slate-400">
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-slate-900/80 border border-slate-700/80 px-2.5 py-1">
+                <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                Live поиск и фильтры
+              </span>
+            </div>
+          </div>
+
+          <!-- Search & filters -->
+          <div class="bg-slate-950/90 border border-slate-800/90 rounded-3xl p-4 sm:p-5 md:p-6 shadow-soft-xl mb-6 md:mb-8">
+            <div class="flex flex-col md:flex-row gap-4 md:gap-5 items-start md:items-center">
+              <!-- Search -->
+              <div class="relative w-full md:flex-1">
+                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z" />
+                  </svg>
+                </div>
+                <input
+                  id="searchInput"
+                  type="text"
+                  placeholder="Поиск по названию или описанию..."
+                  class="w-full rounded-2xl border border-slate-700/80 bg-slate-950/80 pl-9 pr-3 py-2.5 text-xs sm:text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/70 focus:border-indigo-500/70 transition-all"
+                />
+              </div>
+
+              <!-- Filters -->
+              <div class="w-full md:w-auto">
+                <div class="flex flex-wrap gap-1.5">
+                  <button type="button" class="filter-pill inline-flex items-center gap-1 rounded-full border border-slate-700/70 bg-slate-950/80 px-3 py-1.5 text-[11px] text-slate-200 hover:border-slate-500 hover:text-slate-50 transition-all duration-200" data-filter="Финансы">
+                    Финансы
+                  </button>
+                  <button type="button" class="filter-pill inline-flex items-center gap-1 rounded-full border border-slate-700/70 bg-slate-950/80 px-3 py-1.5 text-[11px] text-slate-200 hover:border-slate-500 hover:text-slate-50 transition-all duration-200" data-filter="Учёба">
+                    Учёба
+                  </button>
+                  <button type="button" class="filter-pill inline-flex items-center gap-1 rounded-full border border-slate-700/70 bg-slate-950/80 px-3 py-1.5 text-[11px] text-slate-200 hover:border-slate-500 hover:text-slate-50 transition-all duration-200" data-filter="Бизнес">
+                    Бизнес
+                  </button>
+                  <button type="button" class="filter-pill inline-flex items-center gap-1 rounded-full border border-slate-700/70 bg-slate-950/80 px-3 py-1.5 text-[11px] text-slate-200 hover:border-slate-500 hover:text-slate-50 transition-all duration-200" data-filter="Ежедневные">
+                    Ежедневные
+                  </button>
+                  <button type="button" class="filter-pill inline-flex items-center gap-1 rounded-full border border-slate-700/70 bg-slate-950/80 px-3 py-1.5 text-[11px] text-slate-200 hover:border-slate-500 hover:text-slate-50 transition-all duration-200" data-filter="Планирование">
+                    Планирование
+                  </button>
+                  <button type="button" class="filter-pill inline-flex items-center gap-1 rounded-full border border-slate-700/70 bg-slate-950/80 px-3 py-1.5 text-[11px] text-slate-200 hover:border-slate-500 hover:text-slate-50 transition-all duration-200" data-filter="Аналитика">
+                    Аналитика
+                  </button>
+                </div>
+              </div>
+
+              <!-- Reset -->
+              <div class="flex md:flex-col items-stretch md:items-end gap-2 w-full md:w-auto">
+                <button
+                  id="resetFilters"
+                  type="button"
+                  class="inline-flex items-center justify-center rounded-2xl border border-slate-700/80 bg-slate-950/80 px-3 py-2 text-[11px] font-medium text-slate-200 hover:text-slate-50 hover:border-slate-500 hover:bg-slate-900 transition-all duration-200 w-full md:w-auto"
+                >
+                  Сбросить
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Admin panel -->
+          <section id="admin" class="mb-8">
+            <div
+              id="adminPanel"
+              class="hidden bg-slate-950/90 border border-slate-800/80 rounded-3xl p-4 sm:p-5 md:p-6 shadow-soft-xl space-y-4"
+            >
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+                <div>
+                  <h3 class="text-sm font-semibold text-slate-100">Админ-панель: добавление таблиц</h3>
+                  <p class="text-xs text-slate-400">
+                    Добавьте свой шаблон — он сразу появится в каталоге (данные сохраняются только в этой сессии).
+                  </p>
+                </div>
+                <div class="text-[11px] text-slate-400">
+                  Обязательные поля отмечены <span class="text-fuchsia-400">*</span>
+                </div>
+              </div>
+
+              <form id="adminForm" class="space-y-4">
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div class="space-y-1.5">
+                    <label for="adminTitle" class="text-xs font-medium text-slate-200">
+                      Название шаблона <span class="text-fuchsia-400">*</span>
+                    </label>
+                    <input
+                      id="adminTitle"
+                      type="text"
+                      class="w-full rounded-2xl border border-slate-700/80 bg-slate-950/80 px-3 py-2 text-xs text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/70"
+                      placeholder="Например: План доходов и расходов семьи"
+                      required
+                    />
+                  </div>
+                  <div class="space-y-1.5">
+                    <label for="adminShortDescription" class="text-xs font-medium text-slate-200">
+                      Краткое описание <span class="text-fuchsia-400">*</span>
+                    </label>
+                    <input
+                      id="adminShortDescription"
+                      type="text"
+                      class="w-full rounded-2xl border border-slate-700/80 bg-slate-950/80 px-3 py-2 text-xs text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/70"
+                      placeholder="1–2 строки о том, для чего таблица"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="space-y-1.5">
+                  <label for="adminLongDescription" class="text-xs font-medium text-slate-200">
+                    Подробное описание
+                  </label>
+                  <textarea
+                    id="adminLongDescription"
+                    class="w-full rounded-2xl border border-slate-700/80 bg-slate-950/80 px-3 py-2 text-xs text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/70 min-h-[70px]"
+                    placeholder="Расскажите, как пользоваться шаблоном, какие есть вкладки и показатели."
+                  ></textarea>
+                </div>
+
+                <div class="grid md:grid-cols-[1.2fr,1fr] gap-4">
+                  <div class="space-y-1.5">
+                    <label class="text-xs font-medium text-slate-200">
+                      Категории <span class="text-fuchsia-400">*</span>
+                    </label>
+                    <div class="grid sm:grid-cols-3 gap-2 text-[11px] text-slate-200">
+                      <label class="inline-flex items-center gap-2">
+                        <input type="checkbox" name="categories" value="Финансы" class="h-3 w-3 rounded border-slate-600 bg-slate-950 text-indigo-500" />
+                        <span>Финансы</span>
+                      </label>
+                      <label class="inline-flex items-center gap-2">
+                        <input type="checkbox" name="categories" value="Учёба" class="h-3 w-3 rounded border-slate-600 bg-slate-950 text-indigo-500" />
+                        <span>Учёба</span>
+                      </label>
+                      <label class="inline-flex items-center gap-2">
+                        <input type="checkbox" name="categories" value="Бизнес" class="h-3 w-3 rounded border-slate-600 bg-slate-950 text-indigo-500" />
+                        <span>Бизнес</span>
+                      </label>
+                      <label class="inline-flex items-center gap-2">
+                        <input type="checkbox" name="categories" value="Ежедневные" class="h-3 w-3 rounded border-slate-600 bg-slate-950 text-indigo-500" />
+                        <span>Ежедневные</span>
+                      </label>
+                      <label class="inline-flex items-center gap-2">
+                        <input type="checkbox" name="categories" value="Планирование" class="h-3 w-3 rounded border-slate-600 bg-slate-950 text-indigo-500" />
+                        <span>Планирование</span>
+                      </label>
+                      <label class="inline-flex items-center gap-2">
+                        <input type="checkbox" name="categories" value="Аналитика" class="h-3 w-3 rounded border-slate-600 bg-slate-950 text-indigo-500" />
+                        <span>Аналитика</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="space-y-1.5">
+                    <label for="adminPreview" class="text-xs font-medium text-slate-200">
+                      Мини-превью таблицы (CSV-формат)
+                    </label>
+                    <textarea
+                      id="adminPreview"
+                      class="w-full rounded-2xl border border-slate-700/80 bg-slate-950/80 px-3 py-2 text-[11px] text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/70 min-h-[70px]"
+                      placeholder="Первая строка — заголовки, далее строки. Например:
+Дата,Категория,Сумма
+05.03,Продукты,1200
+05.03,Транспорт,300"
+                    ></textarea>
+                  </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-2 border-t border-slate-800/80">
+                  <button
+                    type="submit"
+                    class="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-indigo-500 via-sky-500 to-fuchsia-500 px-4 py-2 text-xs font-semibold text-white shadow-soft-xl hover:brightness-110 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+                  >
+                    Добавить таблицу в каталог
+                  </button>
+                  <p id="adminMessage" class="text-[11px] text-slate-400">
+                    Подсказка: для новых шаблонов автоматически создаются фейковые ссылки XLSX/CSV/Sheets.
+                  </p>
+                </div>
+              </form>
+            </div>
+          </section>
+
+          <!-- Cards grid -->
+          <div id="cardsGrid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 md:gap-6">
+            <!-- Карточки будут отрисованы скриптом -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Benefits -->
+      <section id="benefits" class="py-12 md:py-16 lg:py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+            <div>
+              <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-slate-50">
+                Почему именно эти таблицы
+              </h2>
+              <p class="mt-1 text-sm text-slate-400 max-w-xl">
+                Мы собрали практичные шаблоны, которые экономят время и помогают навести порядок в цифрах, задачах и планах.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+            <!-- 1 -->
+            <div class="rounded-3xl border border-slate-800/90 bg-slate-950/80 p-4 sm:p-5 shadow-soft-xl hover:-translate-y-1 hover:border-slate-700/80 transition-all duration-200">
+              <div class="flex items-center justify-between mb-4">
+                <div class="h-8 w-8 rounded-2xl bg-slate-900/90 flex items-center justify-center inner-glow">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-100" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16.5V5.75A1.75 1.75 0 015.75 4h12.5A1.75 1.75 0 0120 5.75v10.75A1.75 1.75 0 0118.25 18H9" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16.5A1.5 1.5 0 015.5 15h3A1.5 1.5 0 0110 16.5v2A1.5 1.5 0 018.5 20h-3A1.5 1.5 0 014 18.5v-2z" />
+                  </svg>
+                </div>
+              </div>
+              <h3 class="text-sm font-semibold text-slate-50 mb-1.5">Скачивание в 1 клик</h3>
+              <p class="text-xs text-slate-400">
+                XLSX, CSV и Google Sheets — выбирайте формат и сразу начинайте работать без регистрации и оплат.
+              </p>
+            </div>
+
+            <!-- 2 -->
+            <div class="rounded-3xl border border-slate-800/90 bg-slate-950/80 p-4 sm:p-5 shadow-soft-xl hover:-translate-y-1 hover:border-slate-700/80 transition-all duration-200">
+              <div class="flex items-center justify-between mb-4">
+                <div class="h-8 w-8 rounded-2xl bg-slate-900/90 flex items-center justify-center inner-glow">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-100" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 4.75h16.5v14.5H3.75z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 9h8M8 13h4" />
+                  </svg>
+                </div>
+              </div>
+              <h3 class="text-sm font-semibold text-slate-50 mb-1.5">Премиум оформление</h3>
+              <p class="text-xs text-slate-400">
+                Продуманные шрифты, цвета и структуры: приятно смотреть, удобно заполнять, не стыдно показать команде.
+              </p>
+            </div>
+
+            <!-- 3 -->
+            <div class="rounded-3xl border border-slate-800/90 bg-slate-950/80 p-4 sm:p-5 shadow-soft-xl hover:-translate-y-1 hover:border-slate-700/80 transition-all duration-200">
+              <div class="flex items-center justify-between mb-4">
+                <div class="h-8 w-8 rounded-2xl bg-slate-900/90 flex items-center justify-center inner-glow">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-100" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6l3 3" />
+                    <circle cx="12" cy="12" r="8.25" stroke-width="1.5" />
+                  </svg>
+                </div>
+              </div>
+              <h3 class="text-sm font-semibold text-slate-50 mb-1.5">Постоянные обновления</h3>
+              <p class="text-xs text-slate-400">
+                Мы расширяем библиотеку и обновляем шаблоны по отзывам пользователей и трендам в продуктивности.
+              </p>
+            </div>
+
+            <!-- 4 -->
+            <div class="rounded-3xl border border-slate-800/90 bg-slate-950/80 p-4 sm:p-5 shadow-soft-xl hover:-translate-y-1 hover:border-slate-700/80 transition-all duration-200">
+              <div class="flex items-center justify-between mb-4">
+                <div class="h-8 w-8 rounded-2xl bg-slate-900/90 flex items-center justify-center inner-glow">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-100" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 13.5a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 12a7.5 7.5 0 11-15 0 7.5 7.5 0 0115 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 9.75L8.25 8.25" />
+                  </svg>
+                </div>
+              </div>
+              <h3 class="text-sm font-semibold text-slate-50 mb-1.5">Сделано для людей</h3>
+              <p class="text-xs text-slate-400">
+                Реальные сценарии: фриланс, небольшие команды, учеба, личные финансы и повседневные дела — без лишнего шума.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-slate-950/90">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div class="flex items-center gap-2">
+          <div class="h-6 w-6 rounded-2xl bg-gradient-to-br from-indigo-500 via-sky-500 to-fuchsia-500 flex items-center justify-center text-[10px] font-semibold text-slate-50">
+            T
+          </div>
+          <span class="text-[11px]">© 2025 Таблицы</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="#" class="hover:text-slate-200 transition-colors">Контакты</a>
+          <a href="#" class="hover:text-slate-200 transition-colors">Политика</a>
+          <a href="#" class="hover:text-slate-200 transition-colors">Telegram</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal -->
+  <div
+    id="templateModal"
+    class="fixed inset-0 z-40 flex items-center justify-center px-4 sm:px-6 bg-slate-950/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-200"
+    aria-hidden="true"
+  >
+    <div
+      class="modal-dialog relative max-w-3xl w-full bg-slate-950/95 border border-slate-800/90 rounded-3xl shadow-soft-xl transform scale-95 opacity-0 transition-all duration-200"
+    >
+      <button
+        id="modalClose"
+        type="button"
+        class="absolute right-3 top-3 inline-flex h-7 w-7 items-center justify-center rounded-full bg-slate-900/90 border border-slate-700/80 text-slate-400 hover:text-slate-100 hover:border-slate-500 hover:bg-slate-900 transition-all text-xs"
+        aria-label="Закрыть"
+      >
+        ✕
+      </button>
+      <div class="p-4 sm:p-6 md:p-7">
+        <div class="flex flex-col md:flex-row md:items-start gap-5 mb-4">
+          <div class="flex-1 space-y-2">
+            <div class="inline-flex items-center gap-2 rounded-full bg-slate-900/90 border border-slate-700/80 px-2.5 py-1 text-[11px] text-slate-300">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+              <span>Шаблон таблицы</span>
+            </div>
+            <h3 id="modalTitle" class="text-lg sm:text-xl font-semibold text-slate-50"></h3>
+            <p id="modalDescription" class="text-xs sm:text-sm text-slate-300"></p>
+            <div id="modalTags" class="flex flex-wrap gap-1.5 mt-1"></div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-slate-800/80 bg-slate-950/90 p-3 sm:p-4 mb-4 inner-glow max-h-72 overflow-auto">
+          <div id="modalPreview" class="text-[11px] text-slate-200"></div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex flex-wrap gap-2">
+            <a
+              id="modalXlsx"
+              href="#"
+              download
+              class="inline-flex items-center gap-1.5 rounded-2xl bg-slate-50 text-slate-900 px-3 py-1.5 text-[11px] font-semibold hover:bg-white transition-colors"
+            >
+              Скачать XLSX
+            </a>
+            <a
+              id="modalCsv"
+              href="#"
+              download
+              class="inline-flex items-center gap-1.5 rounded-2xl bg-slate-900/90 border border-slate-700/80 px-3 py-1.5 text-[11px] font-semibold text-slate-100 hover:border-slate-500 hover:bg-slate-900 transition-colors"
+            >
+              Скачать CSV
+            </a>
+            <a
+              id="modalSheets"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-sky-500 px-3 py-1.5 text-[11px] font-semibold text-white hover:brightness-110 transition-colors"
+            >
+              Открыть в Google Sheets
+            </a>
+          </div>
+          <p class="text-[10px] text-slate-500">
+            Файлы и ссылки носят демонстрационный характер.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const cardsGrid = document.getElementById('cardsGrid');
+      const searchInput = document.getElementById('searchInput');
+      const filterButtons = document.querySelectorAll('.filter-pill');
+      const resetFiltersBtn = document.getElementById('resetFilters');
+
+      const adminToggle = document.getElementById('adminToggle');
+      const adminToggleLabel = document.getElementById('adminToggleLabel');
+      const adminPanel = document.getElementById('adminPanel');
+      const adminForm = document.getElementById('adminForm');
+      const adminMessage = document.getElementById('adminMessage');
+
+      const heroCta = document.getElementById('heroCta');
+
+      const modalOverlay = document.getElementById('templateModal');
+      const modalDialog = modalOverlay.querySelector('.modal-dialog');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalDescription = document.getElementById('modalDescription');
+      const modalTags = document.getElementById('modalTags');
+      const modalPreview = document.getElementById('modalPreview');
+      const modalXlsx = document.getElementById('modalXlsx');
+      const modalCsv = document.getElementById('modalCsv');
+      const modalSheets = document.getElementById('modalSheets');
+      const modalClose = document.getElementById('modalClose');
+
+      // Data: templates
+      const templates = [
+        {
+          id: 'finance-month-plan',
+          title: 'Финансовый план на месяц',
+          description: 'Структура для планирования ежемесячных доходов, расходов и накоплений с сравнение план/факт.',
+          longDescription:
+            'Шаблон помогает спланировать доходы и расходы по категориям, контролировать исполнение бюджета и видеть размер фактических сбережений. Подходит для личных и семейных финансов.',
+          tags: ['Финансы', 'Планирование', 'Аналитика'],
+          preview: {
+            headers: ['Категория', 'План', 'Факт'],
+            rows: [
+              ['Зарплата', '120 000 ₽', '118 500 ₽'],
+              ['Аренда + ЖКУ', '40 000 ₽', '40 000 ₽'],
+              ['Продукты', '18 000 ₽', '16 700 ₽'],
+            ],
+          },
+          links: {
+            xlsx: 'downloads/finance-month-plan.xlsx',
+            csv: 'downloads/finance-month-plan.csv',
+            sheets: 'https://docs.google.com/spreadsheets/d/finance-month-plan-demo',
+          },
+        },
+        {
+          id: 'workout-planner',
+          title: 'Планировщик тренировок',
+          description: 'Таблица для планирования тренировок по дням недели с отслеживанием прогресса.',
+          longDescription:
+            'Удобный планировщик с днями недели, типом тренировки и отметкой выполнения. Можно использовать для домашних тренировок или занятий в зале.',
+          tags: ['Ежедневные', 'Планирование'],
+          preview: {
+            headers: ['День', 'Тренировка', 'Статус'],
+            rows: [
+              ['Пн', 'Силовая — верх', 'Запланировано'],
+              ['Ср', 'Кардио 30 мин', 'Выполнено'],
+              ['Пт', 'Силовая — низ', 'В процессе'],
+            ],
+          },
+          links: {
+            xlsx: 'downloads/workout-planner.xlsx',
+            csv: 'downloads/workout-planner.csv',
+            sheets: 'https://docs.google.com/spreadsheets/d/workout-planner-demo',
+          },
+        },
+        {
+          id: 'expense-tracker',
+          title: 'Учёт расходов',
+          description: 'Подробный трекер расходов с категориями и автоматическими итогами.',
+          longDescription:
+            'Отмечайте каждую покупку, категорию, способ оплаты и получайте сводку трат за период. Удобно для контроля личных или семейных расходов.',
+          tags: ['Финансы', 'Ежедневные', 'Аналитика'],
+          preview: {
+            headers: ['Дата', 'Категория', 'Сумма'],
+            rows: [
+              ['05.03', 'Продукты', '1 280 ₽'],
+              ['05.03', 'Транспорт', '240 ₽'],
+              ['06.03', 'Кафе', '690 ₽'],
+            ],
+          },
+          links: {
+            xlsx: 'downloads/expense-tracker.xlsx',
+            csv: 'downloads/expense-tracker.csv',
+            sheets: 'https://docs.google.com/spreadsheets/d/expense-tracker-demo',
+          },
+        },
+        {
+          id: 'project-checklist',
+          title: 'Чек-лист проекта',
+          description: 'Управление задачами проекта с приоритетами и дедлайнами.',
+          longDescription:
+            'Шаблон помогает разбить проект на задачи, расставить приоритеты, дедлайны и ответственных. Подходит как для личных проектów, так и для небольших команд.',
+          tags: ['Бизнес', 'Планирование', 'Ежедневные'],
+          preview: {
+            headers: ['Задача', 'Ответственный', 'Статус'],
+            rows: [
+              ['Бриф и цели', 'Анна', 'Готово'],
+              ['Дизайн макета', 'Илья', 'В работе'],
+              ['Запуск кампании', 'Мария', 'Запланировано'],
+            ],
+          },
+          links: {
+            xlsx: 'downloads/project-checklist.xlsx',
+            csv: 'downloads/project-checklist.csv',
+            sheets: 'https://docs.google.com/spreadsheets/d/project-checklist-demo',
+          },
+        },
+        {
+          id: 'duty-schedule',
+          title: 'График дежурств',
+          description: 'Удобный график дежурств по дням и людям с равномерным распределением.',
+          longDescription:
+            'Составьте справедливый график дежурств в офисе, классе или доме. Таблица поможет видеть нагрузку по каждому человеку и избежать накладок.',
+          tags: ['Ежедневные', 'Планирование'],
+          preview: {
+            headers: ['Дата', 'Ответственный', 'Зона'],
+            rows: [
+              ['01.04', 'Дмитрий', 'Кухня'],
+              ['03.04', 'Ольга', 'Офис'],
+              ['05.04', 'Сергей', 'Переговорка'],
+            ],
+          },
+          links: {
+            xlsx: 'downloads/duty-schedule.xlsx',
+            csv: 'downloads/duty-schedule.csv',
+            sheets: 'https://docs.google.com/spreadsheets/d/duty-schedule-demo',
+          },
+        },
+        {
+          id: 'mini-crm',
+          title: 'CRM-мини для бизнеса',
+          description: 'Лёгкая CRM-система в таблице: сделки, статусы, суммы и этапы.',
+          longDescription:
+            'Шаблон мини-CRM для малого бизнеса и фрилансеров: клиенты, сделки, статусы, суммы и следующие шаги. Позволяет контролировать воронку продаж без сложных систем.',
+          tags: ['Бизнес', 'Аналитика'],
+          preview: {
+            headers: ['Клиент', 'Этап', 'Сумма'],
+            rows: [
+              ['ООО «Альфа»', 'Переговоры', '180 000 ₽'],
+              ['ИП Петрова', 'Счёт выставлен', '75 000 ₽'],
+              ['Startup X', 'Лид', '50 000 ₽'],
+            ],
+          },
+          links: {
+            xlsx: 'downloads/mini-crm.xlsx',
+            csv: 'downloads/mini-crm.csv',
+            sheets: 'https://docs.google.com/spreadsheets/d/mini-crm-demo',
+          },
+        },
+        {
+          id: 'universal-todo',
+          title: 'Универсальный To-Do',
+          description: 'Единый список задач с приоритетами и контекстами на каждый день.',
+          longDescription:
+            'Гибкий список задач: приоритеты, контексты (дом, работа, личное), сроки и статус. Подойдёт для GTD-подхода и простого ежедневного планирования.',
+          tags: ['Ежедневные', 'Планирование'],
+          preview: {
+            headers: ['Задача', 'Приоритет', 'Статус'],
+            rows: [
+              ['Сделать отчёт', 'Высокий', 'В процессе'],
+              ['Позвонить клиенту', 'Средний', 'Запланировано'],
+              ['Прогулка 30 минут', 'Низкий', 'Готово'],
+            ],
+          },
+          links: {
+            xlsx: 'downloads/universal-todo.xlsx',
+            csv: 'downloads/universal-todo.csv',
+            sheets: 'https://docs.google.com/spreadsheets/d/universal-todo-demo',
+          },
+        },
+        {
+          id: 'class-schedule',
+          title: 'Расписание занятий',
+          description: 'Расписание пар или уроков с аудиториями и преподавателями.',
+          longDescription:
+            'Удобное расписание для школы или университета: дни недели, пары, предметы, аудитории и преподаватели. Подходит и для онлайн-групп.',
+          tags: ['Учёба', 'Планирование'],
+          preview: {
+            headers: ['День', 'Время', 'Предмет'],
+            rows: [
+              ['Пн', '09:00–10:30', 'Математика'],
+              ['Ср', '11:00–12:30', 'Маркетинг'],
+              ['Пт', '14:00–15:30', 'Английский'],
+            ],
+          },
+          links: {
+            xlsx: 'downloads/class-schedule.xlsx',
+            csv: 'downloads/class-schedule.csv',
+            sheets: 'https://docs.google.com/spreadsheets/d/class-schedule-demo',
+          },
+        },
+        {
+          id: 'exam-plan',
+          title: 'План подготовки к экзаменам',
+          description: 'Разбейте подготовку по темам, дедлайнам и прогрессу.',
+          longDescription:
+            'Помогает распределить темы по дням, отмечать повторение материала и отслеживать готовность к каждому экзамену. Поддерживает несколько предметов.',
+          tags: ['Учёба', 'Планирование', 'Аналитика'],
+          preview: {
+            headers: ['Предмет', 'Тема', 'Статус'],
+            rows: [
+              ['Математика', 'Интегралы', 'Повторить'],
+              ['История', 'XX век', 'В процессе'],
+              ['Физика', 'Механика', 'Выучено'],
+            ],
+          },
+          links: {
+            xlsx: 'downloads/exam-plan.xlsx',
+            csv: 'downloads/exam-plan.csv',
+            sheets: 'https://docs.google.com/spreadsheets/d/exam-plan-demo',
+          },
+        },
+        {
+          id: 'content-plan',
+          title: 'Контент-план',
+          description: 'План публикаций для соцсетей, блога или YouTube с статусами и метриками.',
+          longDescription:
+            'Шаблон для контент-маркетинга: темы, форматы, площадки, дедлайны и статус публикации. Можно добавлять UTM и базовые метрики эффективности.',
+          tags: ['Бизнес', 'Планирование', 'Аналитика'],
+          preview: {
+            headers: ['Дата', 'Площадка', 'Тема'],
+            rows: [
+              ['12.04', 'Instagram', 'Кейс клиента'],
+              ['15.04', 'Telegram', 'Полезная инструкция'],
+              ['20.04', 'YouTube', 'Разбор ошибок'],
+            ],
+          },
+          links: {
+            xlsx: 'downloads/content-plan.xlsx',
+            csv: 'downloads/content-plan.csv',
+            sheets: 'https://docs.google.com/spreadsheets/d/content-plan-demo',
+          },
+        },
+        {
+          id: 'vacation-schedule',
+          title: 'График отпусков',
+          description: 'Планирование отпусков команды с учётом пересечений и статуса согласования.',
+          longDescription:
+            'Таблица для HR и руководителей: сотрудники, даты отпуска, длительность и статус согласования. Помогает избежать пересечений критичных ролей.',
+          tags: ['Бизнес', 'Планирование'],
+          preview: {
+            headers: ['Сотрудник', 'Период', 'Статус'],
+            rows: [
+              ['Антон', '01.06 – 14.06', 'Согласовано'],
+              ['Елена', '20.06 – 03.07', 'На согласовании'],
+              ['Максим', '10.07 – 24.07', 'Планируется'],
+            ],
+          },
+          links: {
+            xlsx: 'downloads/vacation-schedule.xlsx',
+            csv: 'downloads/vacation-schedule.csv',
+            sheets: 'https://docs.google.com/spreadsheets/d/vacation-schedule-demo',
+          },
+        },
+        {
+          id: 'client-tracker',
+          title: 'Учёт клиентов',
+          description: 'База клиентов с контактами, сегментами и состоянием отношений.',
+          longDescription:
+            'Храните список клиентов с контактами, сегментацией и текущим статусом: новый, активный, потерянный. Подходит для фриланса и небольших компаний.',
+          tags: ['Бизнес', 'Аналитика'],
+          preview: {
+            headers: ['Клиент', 'Статус', 'Сегмент'],
+            rows: [
+              ['ООО «Вектор»', 'Активный', 'B2B'],
+              ['ИП Соколова', 'Новый', 'B2C'],
+              ['Марина К.', 'Тёплый лид', 'B2C'],
+            ],
+          },
+          links: {
+            xlsx: 'downloads/client-tracker.xlsx',
+            csv: 'downloads/client-tracker.csv',
+            sheets: 'https://docs.google.com/spreadsheets/d/client-tracker-demo',
+          },
+        },
+      ];
+
+      const state = {
+        searchQuery: '',
+        activeFilters: new Set(),
+      };
+
+      function slugify(title) {
+        return title
+          .toLowerCase()
+          .trim()
+          .replace(/\s+/g, '-')
+          .replace(/[^a-z0-9а-яё\-]/gi, '');
+      }
+
+      function buildPreviewTable(preview, isLarge) {
+        const table = document.createElement('table');
+        table.className =
+          'preview-table ' + (isLarge ? 'text-[11px]' : 'text-[10px]');
+
+        const thead = document.createElement('thead');
+        const headRow = document.createElement('tr');
+        preview.headers.forEach(function (header) {
+          const th = document.createElement('th');
+          th.textContent = header;
+          headRow.appendChild(th);
+        });
+        thead.appendChild(headRow);
+        table.appendChild(thead);
+
+        const tbody = document.createElement('tbody');
+        preview.rows.forEach(function (row) {
+          const tr = document.createElement('tr');
+          row.forEach(function (cell) {
+            const td = document.createElement('td');
+            td.textContent = cell;
+            tr.appendChild(td);
+          });
+          tbody.appendChild(tr);
+        });
+        table.appendChild(tbody);
+
+        return table;
+      }
+
+      function getFilteredTemplates() {
+        const query = state.searchQuery;
+        const activeFilters = state.activeFilters;
+
+        return templates.filter(function (tpl) {
+          const combinedText =
+            (tpl.title + ' ' + tpl.description + ' ' + (tpl.longDescription || '')).toLowerCase();
+          const matchesSearch = query.length === 0 || combinedText.includes(query);
+
+          const matchesFilter =
+            activeFilters.size === 0 ||
+            tpl.tags.some(function (tag) {
+              return activeFilters.has(tag);
+            });
+
+          return matchesSearch && matchesFilter;
+        });
+      }
+
+      let filterAnimationTimeout = null;
+
+      function renderTemplates() {
+        cardsGrid.innerHTML = '';
+        const current = getFilteredTemplates();
+
+        if (current.length === 0) {
+          const empty = document.createElement('div');
+          empty.className =
+            'col-span-full rounded-3xl border border-dashed border-slate-700/80 bg-slate-950/70 p-6 text-center text-xs text-slate-400';
+          empty.innerHTML =
+            'Нет шаблонов по текущему запросу. Попробуйте изменить поиск или снять фильтры.';
+          cardsGrid.appendChild(empty);
+          return;
+        }
+
+        current.forEach(function (tpl, index) {
+          const card = document.createElement('article');
+          card.dataset.templateId = tpl.id;
+          card.className =
+            'group relative flex flex-col justify-between gap-3 rounded-3xl border border-slate-800/90 bg-slate-950/90 p-4 sm:p-5 shadow-soft-xl hover:-translate-y-1 hover:shadow-[0_24px_80px_rgba(15,23,42,0.95)] hover:border-slate-700/80 transition-all duration-200';
+          card.style.setProperty('--card-delay', index * 60 + 'ms');
+          card.classList.add('card-enter');
+
+          card.addEventListener(
+            'animationend',
+            function () {
+              card.classList.remove('card-enter');
+            },
+            { once: true }
+          );
+
+          // Header
+          const header = document.createElement('div');
+          header.className = 'flex items-start justify-between gap-2';
+
+          const titleBox = document.createElement('div');
+          titleBox.className = 'space-y-1';
+
+          const title = document.createElement('h3');
+          title.className =
+            'text-sm sm:text-[15px] font-semibold text-slate-50 line-clamp-2';
+          title.textContent = tpl.title;
+
+          const desc = document.createElement('p');
+          desc.className = 'text-[11px] text-slate-400 line-clamp-2';
+          desc.textContent = tpl.description;
+
+          titleBox.appendChild(title);
+          titleBox.appendChild(desc);
+
+          const badge = document.createElement('span');
+          badge.className =
+            'inline-flex items-center rounded-full border border-slate-700/80 bg-slate-900/90 px-2.5 py-1 text-[10px] text-slate-300';
+          badge.textContent = tpl.tags[0] || 'Шаблон';
+
+          header.appendChild(titleBox);
+          header.appendChild(badge);
+
+          // Preview
+          const previewWrap = document.createElement('div');
+          previewWrap.className =
+            'rounded-2xl border border-slate-800/80 bg-slate-950/90 p-2.5 sm:p-3 inner-glow overflow-hidden';
+          const previewTable = buildPreviewTable(tpl.preview, false);
+          previewWrap.appendChild(previewTable);
+
+          // Footer
+          const footer = document.createElement('div');
+          footer.className =
+            'flex items-center justify-between gap-2 pt-1';
+
+          const tagsWrap = document.createElement('div');
+          tagsWrap.className = 'flex flex-wrap gap-1.5 max-w-[70%]';
+          tpl.tags.slice(0, 3).forEach(function (tag) {
+            const tagEl = document.createElement('span');
+            tagEl.className =
+              'inline-flex items-center rounded-full bg-slate-900/90 border border-slate-700/80 px-2 py-0.5 text-[10px] text-slate-300';
+            tagEl.textContent = tag;
+            tagsWrap.appendChild(tagEl);
+          });
+
+          const openBtn = document.createElement('button');
+          openBtn.type = 'button';
+          openBtn.dataset.openTemplate = 'true';
+          openBtn.className =
+            'inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-indigo-500 via-sky-500 to-fuchsia-500 px-3 py-1.5 text-[11px] font-semibold text-white shadow-md shadow-slate-950/80 group-hover:shadow-soft-xl group-hover:-translate-y-0.5 transition-all duration-200';
+          openBtn.innerHTML = 'Открыть <span class="ml-1 text-xs">↗</span>';
+
+          footer.appendChild(tagsWrap);
+          footer.appendChild(openBtn);
+
+          card.appendChild(header);
+          card.appendChild(previewWrap);
+          card.appendChild(footer);
+
+          cardsGrid.appendChild(card);
+        });
+      }
+
+      function animateFilterChange() {
+        const existingCards = cardsGrid.querySelectorAll('[data-template-id]');
+
+        if (filterAnimationTimeout) {
+          clearTimeout(filterAnimationTimeout);
+        }
+
+        if (existingCards.length === 0) {
+          renderTemplates();
+          return;
+        }
+
+        existingCards.forEach(function (card) {
+          card.classList.add('card-leave');
+        });
+
+        filterAnimationTimeout = setTimeout(function () {
+          renderTemplates();
+        }, 190);
+      }
+
+      // Search
+      searchInput.addEventListener('input', function (event) {
+        state.searchQuery = event.target.value.trim().toLowerCase();
+        animateFilterChange();
+      });
+
+      // Filters
+      filterButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const filterValue = btn.getAttribute('data-filter');
+          const isActive = state.activeFilters.has(filterValue);
+
+          if (isActive) {
+            state.activeFilters.delete(filterValue);
+            btn.classList.remove('filter-pill-active');
+          } else {
+            state.activeFilters.add(filterValue);
+            btn.classList.add('filter-pill-active');
+          }
+
+          animateFilterChange();
+        });
+      });
+
+      // Reset filters
+      resetFiltersBtn.addEventListener('click', function () {
+        state.searchQuery = '';
+        state.activeFilters.clear();
+        searchInput.value = '';
+        filterButtons.forEach(function (btn) {
+          btn.classList.remove('filter-pill-active');
+        });
+        animateFilterChange();
+      });
+
+      // Open modal from cards (event delegation)
+      cardsGrid.addEventListener('click', function (event) {
+        const openBtn = event.target.closest('[data-open-template]');
+        if (!openBtn) return;
+        const card = openBtn.closest('[data-template-id]');
+        if (!card) return;
+        const id = card.dataset.templateId;
+        const template = templates.find(function (tpl) {
+          return tpl.id === id;
+        });
+        if (template) {
+          openModal(template);
+        }
+      });
+
+      // Modal logic
+      function openModal(template) {
+        modalTitle.textContent = template.title;
+        modalDescription.textContent =
+          template.longDescription || template.description || '';
+        modalTags.innerHTML = '';
+        template.tags.forEach(function (tag) {
+          const span = document.createElement('span');
+          span.className =
+            'inline-flex items-center rounded-full bg-slate-900/90 border border-slate-700/80 px-2.5 py-1 text-[10px] text-slate-200';
+          span.textContent = tag;
+          modalTags.appendChild(span);
+        });
+
+        modalPreview.innerHTML = '';
+        modalPreview.appendChild(buildPreviewTable(template.preview, true));
+
+        modalXlsx.href = template.links.xlsx;
+        modalCsv.href = template.links.csv;
+        modalSheets.href = template.links.sheets;
+
+        modalOverlay.setAttribute('aria-hidden', 'false');
+        modalOverlay.classList.remove('pointer-events-none');
+        modalOverlay.classList.add('opacity-100');
+
+        modalDialog.classList.remove('opacity-100', 'scale-100');
+        // trigger reflow
+        void modalDialog.offsetWidth;
+        modalDialog.classList.remove('opacity-0', 'scale-95');
+        modalDialog.classList.add('opacity-100', 'scale-100');
+
+        document.documentElement.classList.add('overflow-hidden');
+      }
+
+      function closeModal() {
+        modalDialog.classList.remove('opacity-100', 'scale-100');
+        modalDialog.classList.add('opacity-0', 'scale-95');
+        modalOverlay.classList.remove('opacity-100');
+        modalOverlay.classList.add('opacity-0');
+        modalOverlay.classList.add('pointer-events-none');
+        modalOverlay.setAttribute('aria-hidden', 'true');
+        document.documentElement.classList.remove('overflow-hidden');
+      }
+
+      modalClose.addEventListener('click', closeModal);
+
+      modalOverlay.addEventListener('click', function (event) {
+        if (event.target === modalOverlay) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          closeModal();
+        }
+      });
+
+      // Admin panel toggle
+      adminToggle.addEventListener('click', function () {
+        const willBeHidden = adminPanel.classList.toggle('hidden');
+        adminToggle.setAttribute('aria-expanded', String(!willBeHidden));
+        adminToggleLabel.textContent = willBeHidden
+          ? 'Админ-панель'
+          : 'Скрыть админ-панель';
+      });
+
+      // Admin panel: add template
+      adminForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const titleInput = document.getElementById('adminTitle');
+        const shortDescInput = document.getElementById('adminShortDescription');
+        const longDescInput = document.getElementById('adminLongDescription');
+        const previewInput = document.getElementById('adminPreview');
+
+        const title = titleInput.value.trim();
+        const shortDesc = shortDescInput.value.trim();
+        const longDesc = longDescInput.value.trim();
+
+        const checkedCategories = Array.from(
+          adminForm.querySelectorAll('input[name="categories"]:checked')
+        ).map(function (checkbox) {
+          return checkbox.value;
+        });
+
+        if (!title || !shortDesc || checkedCategories.length === 0) {
+          adminMessage.textContent =
+            'Заполните название, краткое описание и выберите хотя бы одну категорию.';
+          adminMessage.classList.remove('text-slate-400');
+          adminMessage.classList.add('text-amber-400');
+          return;
+        }
+
+        // Parse preview CSV-like text
+        let preview = null;
+        const previewText = previewInput.value.trim();
+        if (previewText) {
+          const lines = previewText.split('\n').map(function (line) {
+            return line.trim();
+          }).filter(Boolean);
+          if (lines.length >= 1) {
+            const headers = lines[0].split(',').map(function (cell) {
+              return cell.trim();
+            });
+            const rows = lines.slice(1).map(function (line) {
+              return line.split(',').map(function (cell) {
+                return cell.trim();
+              });
+            });
+            preview = { headers: headers, rows: rows.length ? rows : [['', '', '']] };
+          }
+        }
+
+        if (!preview) {
+          preview = {
+            headers: ['Колонка 1', 'Колонка 2', 'Колонка 3'],
+            rows: [
+              ['Пример 1', 'Значение', 'Комментарий'],
+              ['Пример 2', 'Значение', 'Комментарий'],
+            ],
+          };
+        }
+
+        const slug = slugify(title);
+
+        const newTemplate = {
+          id: 'custom-' + slug + '-' + Date.now().toString(36),
+          title: title,
+          description: shortDesc,
+          longDescription: longDesc || shortDesc,
+          tags: checkedCategories,
+          preview: preview,
+          links: {
+            xlsx: 'downloads/' + slug + '.xlsx',
+            csv: 'downloads/' + slug + '.csv',
+            sheets: 'https://docs.google.com/spreadsheets/d/' + slug,
+          },
+        };
+
+        templates.push(newTemplate);
+
+        adminForm.reset();
+        adminMessage.textContent = 'Шаблон добавлен в каталог (фейковые ссылки созданы).';
+        adminMessage.classList.remove('text-amber-400');
+        adminMessage.classList.add('text-emerald-400');
+
+        animateFilterChange();
+      });
+
+      // Hero CTA scroll
+      heroCta.addEventListener('click', function () {
+        const catalogSection = document.getElementById('catalog');
+        if (catalogSection) {
+          catalogSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+
+      // Initial render
+      renderTemplates();
+    });
+  </script>
+</body>
+</html>
